@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reroom</title>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flubber@0.4.2/dist/flubber.min.js"></script>
+
+    <script defer src="javascripts/scripts.js"></script>
+  </head>
+  <body>
+    <section class="hero">
+      <header class="header">
+        <nav class="nav">
+          <a href="locations.html" class="nav__link">Наши локации</a>
+          <a href="team.html" class="nav__link">Стань частью команды</a>
+          <a href="catalog.html" class="nav__link">Каталог</a>
+        </nav>
+
+        <a href="index.html" class="logo"> reroom. </a>
+
+        <button class="burger" aria-label="Открыть меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </header>
+
+      <div class="hero__content">
+        <div class="hero__text">
+          <h1>
+            Пространство для отдыха
+            <br />
+            в ритме города
+          </h1>
+
+          <a href="#" class="hero__button"> Забронировать комнату </a>
+        </div>
+
+        <div class="hero-house">
+          <svg id="house-svg" viewBox="0 0 1000 700">
+            <polygon id="house-shape" fill="#AEFF17" />
+            <polygon id="window-1" fill="#1B1B1B"></polygon>
+            <polygon id="window-2" fill="#1B1B1B"></polygon>    
+          </svg>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

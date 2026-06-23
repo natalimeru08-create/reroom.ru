@@ -1,0 +1,126 @@
+:root {
+  --accent: #aeff17;
+  --bg: #1b1b1b;
+  --white: #ffffff;
+  --black: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.hero {
+  min-height: 100vh;
+  padding: 2.222vw 4.167vw;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  gap: 3.333vw;
+}
+
+.nav__link {
+  font-size: 1.111vw;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav__link:hover {
+  color: var(--accent);
+}
+
+.logo {
+  font-size: 2.083vw;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.burger {
+  display: none;
+}
+
+.hero__content {
+  min-height: calc(100vh - 8vw);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero__text {
+  max-width: 50vw;
+  transform: translateY(-9vw);
+}
+
+.hero__text h1 {
+  font-size: 3.472vw;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 3.333vw;
+}
+
+.hero__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.25vw 2.778vw;
+
+  background: var(--black);
+  color: var(--white);
+
+  border-radius: 69.444vw;
+
+  font-size: 1.389vw;
+  font-weight: 700;
+
+  transition: 0.3s;
+}
+
+.hero__button:hover {
+  transform: translateY(-0.139vw);
+  background: var(--accent);
+  color: var(--black);
+}
+.hero-house {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  width: 62vw;
+  height: 45vw;
+}
+
+#house-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
