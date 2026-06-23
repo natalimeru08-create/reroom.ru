@@ -1,6 +1,8 @@
 const house = document.getElementById("house-shape");
 const w1 = document.getElementById("window-1");
 const w2 = document.getElementById("window-2");
+const section = document.querySelector(".about");
+const hand = document.querySelector(".about__hand");
 
 const states = [
   {
@@ -99,3 +101,153 @@ setInterval(() => {
 
   morph(current);
 }, 3000);
+
+// рука
+
+window.addEventListener("scroll", () => {
+  const rect = section.getBoundingClientRect();
+
+  let progress =
+    (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+
+  progress = Math.max(0, Math.min(1, progress));
+
+  progress = 0.7 + progress * 0.5;
+
+  const startX = 40;
+  const endX = 0;
+
+  const currentX = startX - (startX - endX) * progress;
+
+  hand.style.transform = `translateX(${currentX}vw)`;
+});
+
+// 3+4
+const process = document.querySelector(".process");
+
+const scene1 = document.querySelector(".scene--1");
+const scene2 = document.querySelector(".scene--2");
+
+const pin = document.querySelector(".pin");
+
+const door = document.querySelector(".door");
+
+const knocks = document.querySelectorAll(".knock");
+
+window.addEventListener("scroll", () => {
+  const rect = process.getBoundingClientRect();
+
+  let progress =
+    (window.innerHeight - rect.top) /
+    (process.offsetHeight - window.innerHeight);
+
+  progress = Math.max(0, Math.min(progress, 1));
+
+  /* ПИН */
+
+  const pinProgress = Math.min(progress / 0.25, 1);
+
+  pin.style.opacity = pinProgress;
+
+  if (pinProgress < 1) {
+    pin.style.transform = `
+    scale(${0.4 + pinProgress * 0.6})
+  `;
+  } else {
+    const swing = Math.sin(Date.now() / 150) * 4;
+
+    pin.style.transform = `
+    scale(1)
+    rotate(${swing}deg)
+  `;
+  }
+
+  /* СЦЕНА 1 */
+
+  if (progress <= 0.45) {
+    scene1.style.opacity = 1;
+    scene2.style.opacity = 0;
+  }
+
+  /* ПЕРЕКЛЮЧЕНИЕ */
+
+  if (progress > 0.45 && progress < 0.65) {
+    const t = (progress - 0.45) / 0.2;
+
+    scene1.style.opacity = 1 - t;
+    scene2.style.opacity = t;
+  }
+
+  /* СЦЕНА 2 */
+
+  if (progress >= 0.65) {
+    scene1.style.opacity = 0;
+    scene2.style.opacity = 1;
+  }
+
+  /* ДВЕРЬ */
+
+  if (progress > 0.7) {
+    const doorProgress = Math.min((progress - 0.7) / 0.15, 1);
+
+    door.style.transform = `scaleY(${doorProgress})`;
+  }
+
+  /* СТУК */
+
+  if (progress > 0.82) {
+    const time = Date.now() / 200;
+
+    knocks.forEach((item) => {
+      item.style.opacity = 0;
+    });
+
+    const phase = Math.floor(time % 6);
+
+    if (phase < 3) {
+      document.querySelector(".knock--1").style.opacity = 1;
+      document.querySelector(".knock--2").style.opacity = 1;
+      document.querySelector(".knock--3").style.opacity = 1;
+    } else {
+      document.querySelector(".knock--4").style.opacity = 1;
+      document.querySelector(".knock--5").style.opacity = 1;
+      document.querySelector(".knock--6").style.opacity = 1;
+    }
+  }
+});
+
+const locations = document.querySelector(".locations");
+
+const map = document.querySelector(".locations__map");
+const points = document.querySelectorAll(".point");
+
+window.addEventListener("scroll", () => {
+  const rect = locations.getBoundingClientRect();
+
+  let progress =
+    (window.innerHeight - rect.top) /
+    (locations.offsetHeight - window.innerHeight);
+
+  progress = Math.max(0, Math.min(progress, 1));
+
+  /* КАРТА */
+
+  if (progress > 0.15) {
+    const mapProgress = Math.min((progress - 0.15) / 0.15, 1);
+
+    map.style.opacity = mapProgress;
+  }
+  
+
+  /* ТОЧКИ */
+
+  points.forEach((point, index) => {
+    const start = 0.35 + index * 0.03;
+
+    let pointProgress = (progress - start) / 0.05;
+
+    pointProgress = Math.max(0, Math.min(pointProgress, 1));
+
+    point.style.transform = `scale(${pointProgress})`;
+  });
+});

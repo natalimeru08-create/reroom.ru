@@ -1,0 +1,79 @@
+.process__scene--1,
+.process__scene--2 {
+  position: absolute;
+  inset: 0;
+}
+
+.process__scene--1 {
+  opacity: 1;
+}
+
+.process__scene--2 {
+  opacity: 0;
+}
+
+.pin {
+  transform: scale(0.6);
+  opacity: 0;
+}
+
+.door {
+  transform: scaleY(0);
+  transform-origin: bottom center;
+}
+
+.book {
+  opacity: 0;
+  transform: translateY(3vw);
+}
+
+.door__sound span {
+  opacity: 0;
+}
+
+.door__sound.active span {
+  animation: knock 0.8s infinite alternate;
+}
+
+@keyframes knock {
+  from {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+.advantages__row--1 .advantages__track {
+  animation: leftMove 40s linear infinite;
+}
+
+.advantages__row--2 .advantages__track {
+  animation: rightMove 35s linear infinite;
+}
+
+.advantages__row--3 .advantages__track {
+  animation: leftMove 41s linear infinite;
+}
+
+@keyframes leftMove {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes rightMove {
+  from {
+    transform: translateX(-33.333%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}

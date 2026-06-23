@@ -35,6 +35,7 @@ img {
 .hero {
   min-height: 100vh;
   padding: 2.222vw 4.167vw;
+  margin-bottom: 10vw;
 }
 
 .header {
@@ -124,3 +125,421 @@ img {
   height: 100%;
   overflow: visible;
 }
+/* второй экран */
+.about {
+  min-height: 100vh;
+  padding-left: 20vw;
+  padding-top: 4vw;
+  overflow: hidden;
+}
+
+.about__container {
+  position: relative;
+}
+
+.about__title {
+  font-size: 2.5vw;
+  margin-bottom: 2vw;
+  font-weight: bolder;
+}
+
+.about__bubble {
+  width: 45vw;
+  padding: 1.5vw 3vw;
+  background: var(--accent);
+  border-radius: 100vw;
+  color: var(--black);
+  font-size: 1vw;
+  font-weight: 300;
+  z-index: 1;
+}
+
+.about__scene {
+  z-index: 2;
+  position: absolute;
+  transform: translateY(-6vw);
+  height: 40vw;
+  width: 100%;
+  overflow: hidden;
+}
+.about__keyhole {
+  position: absolute;
+  transform: translateY(-6vw);
+  left: 1vw;
+  bottom: 2vw;
+  width: 5.278vw;
+}
+
+.about__hand {
+  position: absolute;
+  top: -30vw;
+  right: -10vw;
+  bottom: -3vw;
+  width: 100vw;
+  height: 90vw;
+  transform: translateX(0);
+}
+/* экран 3+4 */
+.process {
+  top: -25vw;
+  height: 700vw;
+  position: relative;
+}
+
+.process__sticky {
+  position: sticky;
+  top: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 20vw;
+
+  opacity: 0;
+}
+
+.scene--1 {
+  opacity: 1;
+}
+
+.pin {
+  width: 24vw;
+
+  transform-origin: center bottom;
+
+  opacity: 0;
+}
+
+.door {
+  width: 100%;
+  height: 100%;
+}
+.scene--2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10vw;
+}
+
+.door {
+  width: 100%;
+  height: 100%;
+
+  transform-origin: center bottom;
+  transform: scaleY(0);
+}
+.book {
+  width: 22vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  position: relative;
+  z-index: 5;
+}
+.book p {
+  margin-top: 1.5vw;
+  color: var(--white);
+  max-width: 22vw;
+  font-size: 1.4vw;
+  line-height: 1.2;
+}
+.pill {
+  display: inline-flex;
+
+  padding: 1.3vw 3.2vw;
+
+  border-radius: 100vw;
+
+  background: var(--accent);
+
+  color: var(--black);
+
+  font-size: 2.5vw;
+  font-weight: bolder;
+}
+
+.choose p,
+.book p {
+  width: 22vw;
+  margin-top: 1.5vw;
+
+  max-width: 20vw;
+
+  font-size: 1.4vw;
+}
+
+.door-wrapper {
+  position: relative;
+
+  width: 25vw;
+  height: 45vw;
+
+  flex-shrink: 0;
+}
+
+.door {
+  transform-origin: center bottom;
+  transform: scaleY(0);
+}
+
+.knock {
+  position: absolute;
+
+  width: 2vw;
+  height: 0.6vw;
+
+  background: var(--white);
+
+  border-radius: 100vw;
+
+  opacity: 0;
+}
+
+.knock--1 {
+  left: -3vw;
+  top: 40%;
+  transform: rotate(20deg);
+}
+
+.knock--2 {
+  left: -3vw;
+  top: 43%;
+}
+
+.knock--3 {
+  left: -3vw;
+  top: 46%;
+  transform: rotate(-20deg);
+}
+
+.knock--4 {
+  right: -3vw;
+  top: 40%;
+  transform: rotate(-20deg);
+}
+
+.knock--5 {
+  right: -3vw;
+  top: 43%;
+}
+
+.knock--6 {
+  right: -3vw;
+  top: 46%;
+  transform: rotate(20deg);
+}
+.choose,
+.book {
+  max-width: 24vw;
+}
+.book {
+  opacity: 1 !important;
+}
+/* карта */
+.locations {
+  height: 400vh;
+  position: relative;
+}
+
+.locations__sticky {
+  position: sticky;
+  top: 0;
+
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.locations__map {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0;
+}
+
+.locations__map img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.locations__pill {
+  position: relative;
+  z-index: 5;
+
+  padding: 2vw 4vw;
+
+  border-radius: 100vw;
+
+  background: var(--white);
+
+  color: var(--black);
+
+  font-size: 2.5vw;
+  font-weight: 700;
+}
+
+.point {
+  position: absolute;
+
+  width: 3vw;
+  height: 3vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--accent);
+  color: var(--black);
+
+  border-radius: 0.7vw;
+  font-size: 2.6vw;
+  font-weight: 900;
+
+  transform: scale(0);
+}
+
+.point--1 {
+  top: 12%;
+  left: 8%;
+}
+.point--2 {
+  top: 22%;
+  left: 20%;
+}
+.point--3 {
+  top: 10%;
+  left: 60%;
+}
+.point--4 {
+  top: 18%;
+  left: 75%;
+}
+.point--5 {
+  top: 40%;
+  left: 48%;
+}
+.point--6 {
+  top: 50%;
+  left: 83%;
+}
+.point--7 {
+  top: 70%;
+  left: 20%;
+}
+.point--8 {
+  top: 60%;
+  left: 65%;
+}
+.point--9 {
+  top: 85%;
+  left: 50%;
+}
+.point--10 {
+  top: 75%;
+  left: 92%;
+}
+/* преимущества */
+
+.advantages {
+  position: relative;
+  padding: 8vw 0;
+  overflow: hidden;
+}
+
+.advantages__row {
+  display: flex;
+  gap: 1vw;
+  width: max-content;
+  margin-bottom: 0.3vw;
+}
+
+.tag {
+  flex-shrink: 0;
+
+  height: 5vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0.14vw solid #aeff17;
+  border-radius: 999vw;
+
+  color: #aeff17;
+  font-size: 2vw;
+  font-weight: 700;
+}
+
+.tag--sm {
+  width: 18vw;
+}
+
+.tag--md {
+  width: 25vw;
+}
+
+.tag--lg {
+  width: 32vw;
+}
+
+.tag--xl {
+  width: 40vw;
+}
+
+.advantages__title {
+  flex-shrink: 0;
+
+  width: 36vw;
+  height: 5vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999vw;
+
+  background: #fff;
+  color: #000;
+
+  font-size: 2vw;
+  font-weight: 700;
+}
+.advantages {
+  overflow: hidden;
+  position: relative;
+  overflow: hidden;
+
+  width: 100vw;
+}
+
+.advantages__row {
+  overflow: hidden;
+  width: 100%;
+}
+
+.advantages__track {
+  display: flex;
+  gap: 1vw;
+  width: max-content;
+  will-change: transform;
+}
+
+
