@@ -12,9 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let formSubmitted = false;
 
-  // ======================
-  // Телефон
-  // ======================
 
   phoneInput.addEventListener("input", function (e) {
     let value = e.target.value.replace(/\D/g, "");
@@ -70,17 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ======================
-  // Проверка при вводе
-  // ======================
+
 
   [nameInput, surnameInput, emailInput].forEach((input) => {
     input.addEventListener("input", validateForm);
   });
 
-  // ======================
-  // Валидация
-  // ======================
+
 
   function validateForm() {
     let valid = true;
@@ -116,9 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.disabled = !valid;
   }
 
-  // ======================
-  // Ошибки
-  // ======================
 
   function setError(input) {
     input.parentElement.classList.add("error");
@@ -128,9 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
     input.parentElement.classList.remove("error");
   }
 
-  // ======================
-  // Отправка
-  // ======================
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -144,5 +131,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // НЕ вызываем validateForm() здесь
+
 });
