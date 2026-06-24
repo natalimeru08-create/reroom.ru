@@ -237,7 +237,6 @@ window.addEventListener("scroll", () => {
 
     map.style.opacity = mapProgress;
   }
-  
 
   /* ТОЧКИ */
 
@@ -251,3 +250,26 @@ window.addEventListener("scroll", () => {
     point.style.transform = `scale(${pointProgress})`;
   });
 });
+
+const promo = document.querySelector(".promo");
+const beam = document.querySelector(".promo__beam");
+
+window.addEventListener("scroll", () => {
+  const rect = promo.getBoundingClientRect();
+
+  let progress =
+    (window.innerHeight * 1.4 - rect.top) /
+    (promo.offsetHeight - window.innerHeight);
+
+  progress = Math.max(0, Math.min(progress, 1));
+
+  const moveY = progress * 25;
+  const rotate = 18 - progress * 18;
+
+  beam.style.transform = `
+    translateY(-${moveY}vw)
+    rotate(${rotate}deg)
+  `;
+});
+
+

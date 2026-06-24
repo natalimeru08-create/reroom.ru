@@ -10,28 +10,25 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/flubber@0.4.2/dist/flubber.min.js"></script>
-
     <script defer src="javascripts/scripts.js"></script>
   </head>
   <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="locations.html" class="nav__link">Наши локации</a>
+        <a href="team.html" class="nav__link">Стань частью команды</a>
+        <a href="catalog.html" class="nav__link">Каталог</a>
+      </nav>
+
+      <a href="index.html" class="logo"> reroom. </a>
+
+      <button class="burger" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
     <section class="hero">
-      <header class="header">
-        <nav class="nav">
-          <a href="locations.html" class="nav__link">Наши локации</a>
-          <a href="team.html" class="nav__link">Стань частью команды</a>
-          <a href="catalog.html" class="nav__link">Каталог</a>
-        </nav>
-
-        <a href="index.html" class="logo"> reroom. </a>
-
-        <button class="burger" aria-label="Открыть меню">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </header>
-
       <div class="hero__content">
         <div class="hero__text">
           <h1>
@@ -162,5 +159,88 @@
         </div>
       </div>
     </section>
+
+    <section class="plans">
+      <h2 class="plans__title">Отдыхай в любое время в любом месте</h2>
+
+      <div class="plans__cards">
+        <article class="plan-card plan-card--large">
+          <h3 class="plan-card__name">Room pass</h3>
+
+          <div class="plan-card__tags">
+            <div class="plan-tag">Ежедневный доступ</div>
+            <div class="plan-tag">До 4 часов</div>
+          </div>
+
+          <p class="plan-card__time">с 8:00–22:00</p>
+
+          <div class="plan-card__bottom">
+            <div class="plan-card__price">2990 ₽</div>
+            <span>За 30 дней</span>
+          </div>
+        </article>
+
+        <article class="plan-card">
+          <h3 class="plan-card__name">Night room</h3>
+
+          <div class="plan-card__tags">
+            <div class="plan-tag">Доступ 22:00–8:00</div>
+            <div class="plan-tag">До 8 часов</div>
+          </div>
+
+          <p class="plan-card__time">с 22:00–8:00</p>
+
+          <div class="plan-card__bottom">
+            <div class="plan-card__price">3990 ₽</div>
+            <span>За 30 дней</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="promo">
+      <div class="promo__sticky">
+        <div class="promo__beam"></div>
+
+        <div class="promo__text">
+          <h2>
+            Не жди вечера.<br />
+            Отдохни сейчас
+          </h2>
+
+          <img src="./images/qr.svg" alt="" />
+        </div>
+
+        <img src="./images/phone.svg" alt="" class="promo__phone" />
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="footer__column">
+          <a href="index.html">О нас</a>
+
+          <a href="locations.html">Наши локации</a>
+
+          <a href="catalog.html">Каталог</a>
+
+          <a href="404.html">Приложение</a>
+
+          <a href="team.html">Стань частью команды</a>
+        </div>
+
+        <div class="footer__column">
+          <span>Контакты</span>
+
+          <a href="tel:+79645817833"> +7 (964) 581 78 33 </a>
+
+          <a href="#"> @reroom.r0 </a>
+
+          <a href="mailto:reroom.r@gmail.com"> reroom.r@gmail.com </a>
+        </div>
+
+        <a href="index.html" class="footer__logo"> reroom. </a>
+      </div>
+    </footer>
   </body>
 </html>

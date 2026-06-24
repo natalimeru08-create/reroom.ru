@@ -1,11 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Страница не найдена</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="locations.html" class="nav__link">Наши локации</a>
+        <a href="team.html" class="nav__link">Стань частью команды</a>
+        <a href="catalog.html" class="nav__link">Каталог</a>
+      </nav>
+
+      <a href="index.html" class="logo"> reroom. </a>
+
+      <button class="burger" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+    <section class="error404">
+      <img src="./images/cat-404.svg" alt="reroom cat" class="error404__cat" />
+
+      <div class="error404__content">
+        <p class="error404__subtitle">Что-то сломалось, мы уже чиним!</p>
+
+        <h1 class="error404__title">404</h1>
+
+        <a href="index.html" class="error404__button">
+          Забронировать комнату
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="footer__column">
+          <a href="index.html">О нас</a>
+
+          <a href="locations.html">Наши локации</a>
+
+          <a href="catalog.html">Каталог</a>
+
+          <a href="404.html">Приложение</a>
+
+          <a href="team.html">Стань частью команды</a>
+        </div>
+
+        <div class="footer__column">
+          <span>Контакты</span>
+
+          <a href="tel:+79645817833"> +7 (964) 581 78 33 </a>
+
+          <a href="#"> @reroom.r0 </a>
+
+          <a href="mailto:reroom.r@gmail.com"> reroom.r@gmail.com </a>
+        </div>
+
+        <a href="index.html" class="footer__logo"> reroom. </a>
+      </div>
+    </footer>
+  </body>
 </html>

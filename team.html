@@ -1,11 +1,171 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Стань частью нашей команды</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="javascripts/team-form.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="locations.html" class="nav__link">Наши локации</a>
+        <a href="team.html" class="nav__link nav__link--active"
+          ><u>Стань частью команды</u></a
+        >
+        <a href="catalog.html" class="nav__link">Каталог</a>
+      </nav>
+
+      <a href="index.html" class="logo"> reroom. </a>
+
+      <button class="burger" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+    <section class="join-hero">
+      <div class="join-hero__door">
+        <div class="join-hero__knocks join-hero__knocks--left">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="join-hero__knocks join-hero__knocks--right">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="join-hero__content">
+          <h1>
+            Стань частью<br />
+            нашей команды
+          </h1>
+
+          <p>Наши двери открыты для тебя</p>
+
+          <a href="#join-form" class="join-hero__button"> Присоединиться </a>
+        </div>
+
+        <div class="join-hero__handle"></div>
+      </div>
+    </section>
+    <section class="benefits">
+      <h2 class="benefits__title">Бонусы для сотрудников</h2>
+
+      <div class="benefits__grid">
+        <article class="benefit-card">
+          <img src="./images/door-icon.svg" alt="" />
+          <h3 class="h31">Доступ</h3>
+          <p>Бесплатный безлимитный доступ для сотрудников</p>
+        </article>
+
+        <article class="benefit-card">
+          <img src="./images/moon-icon.svg" alt="" />
+          <h3>Мероприятия</h3>
+          <p>Лекции по психологии и сомнологии</p>
+        </article>
+
+        <article class="benefit-card">
+          <img src="./images/wallet-icon.svg" alt="" />
+          <h3>Льготы</h3>
+          <p>Корпоративные скидки от партнеров</p>
+        </article>
+
+        <article class="benefit-card">
+          <img src="./images/car-icon.svg" alt="" />
+          <h3>Трансфер</h3>
+          <p>Бесплатный ночной трансфер между хабами</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="team-values">
+      <div class="cat-animation">
+        <img src="./images/cat-1.png" class="frame frame-1" alt="" />
+        <img src="./images/cat-2.png" class="frame frame-2" alt="" />
+        <img src="./images/cat-3.png" class="frame frame-3" alt="" />
+        <img src="./images/cat-4.png" class="frame frame-4" alt="" />
+      </div>
+
+      <div class="team-values__bubble">
+        <p>
+          Наша команда состоит из доброжелательных людей. Мы открыто обсуждаем
+          перспективы, находим общие точки и помогаем друг другу двигаться
+          вперёд.
+        </p>
+      </div>
+    </section>
+
+    <section class="join-form">
+      <img src="./images/key.svg" class="join__left" alt="" />
+      <img src="./images/hanger.svg" class="join__right" alt="" />
+      <div class="join-form__container">
+        <h2 class="join-form__title">Присоединяйся к команде!</h2>
+
+        <form id="teamForm" class="form">
+          <div class="field">
+            <input type="text" id="name" placeholder=" " />
+            <label for="name">Имя</label>
+            <span class="error-text">Минимум 2 символа</span>
+          </div>
+
+          <div class="field">
+            <input type="text" id="surname" placeholder=" " />
+            <label for="surname">Фамилия</label>
+            <span class="error-text">Минимум 2 символа</span>
+          </div>
+
+          <div class="field">
+            <input type="email" id="email" placeholder=" " />
+            <label for="email">Почта</label>
+            <span class="error-text">Неверная почта</span>
+          </div>
+
+          <div class="field">
+            <input type="tel" id="phone" placeholder=" " />
+            <label for="phone">Номер телефона</label>
+            <span class="error-text">Формат: +0 (000) 000-00-00</span>
+          </div>
+
+          <button type="submit" class="submit-btn" disabled>Отправить</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="footer__column">
+          <a href="index.html">О нас</a>
+
+          <a href="locations.html">Наши локации</a>
+
+          <a href="catalog.html">Каталог</a>
+
+          <a href="404.html">Приложение</a>
+
+          <a href="team.html">Стань частью команды</a>
+        </div>
+
+        <div class="footer__column">
+          <span>Контакты</span>
+
+          <a href="tel:+79645817833"> +7 (964) 581 78 33 </a>
+
+          <a href="#"> @reroom.r0 </a>
+
+          <a href="mailto:reroom.r@gmail.com"> reroom.r@gmail.com </a>
+        </div>
+
+        <a href="index.html" class="footer__logo"> reroom. </a>
+      </div>
+    </footer>
+  </body>
 </html>

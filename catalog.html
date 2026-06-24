@@ -1,11 +1,105 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Каталог</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a href="locations.html" class="nav__link">Наши локации</a>
+        <a href="team.html" class="nav__link">Стань частью команды</a>
+        <a href="catalog.html" class="nav__link nav__link--active"
+          ><u>Каталог</u></a
+        >
+      </nav>
+
+      <a href="index.html" class="logo"> reroom. </a>
+
+      <button class="burger" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <section class="catalog">
+      <div class="catalog__container">
+        <div class="catalog__card">
+          <img src="./images/stickers.svg" alt="Набор стикеров" />
+
+          <h3>Набор стикеров</h3>
+
+          <p>Набор с фирменным котом и указателями</p>
+
+          <a href="404.html" class="catalog__btn">Купить</a>
+        </div>
+
+        <div class="catalog__card">
+          <img src="./images/sleep-kit.svg" alt="Набор для сна" />
+
+          <h3>Набор для сна</h3>
+
+          <p>Набор из состоящий из маски для сна и эфирного масла</p>
+
+          <a href="404.html" class="catalog__btn">Купить</a>
+        </div>
+
+        <div class="catalog__card">
+          <img src="./images/shopper.svg" alt="Шопер" />
+
+          <h3>Шопер</h3>
+
+          <p>Вместительный шоппер от reroom.</p>
+
+          <a href="404.html" class="catalog__btn">Купить</a>
+        </div>
+
+        <div class="catalog__card">
+          <img src="./images/slippers.svg" alt="Тапочки" />
+
+          <h3>Тапочки</h3>
+
+          <p>Удобные тапочки фирменного цвета</p>
+
+          <a href="404.html" class="catalog__btn">Купить</a>
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="footer__column">
+          <a href="index.html">О нас</a>
+
+          <a href="locations.html">Наши локации</a>
+
+          <a href="catalog.html">Каталог</a>
+
+          <a href="404.html">Приложение</a>
+
+          <a href="team.html">Стань частью команды</a>
+        </div>
+
+        <div class="footer__column">
+          <span>Контакты</span>
+
+          <a href="tel:+79645817833"> +7 (964) 581 78 33 </a>
+
+          <a href="#"> @reroom.r0 </a>
+
+          <a href="mailto:reroom.r@gmail.com"> reroom.r@gmail.com </a>
+        </div>
+
+        <a href="index.html" class="footer__logo"> reroom. </a>
+      </div>
+    </footer>
+  </body>
 </html>
