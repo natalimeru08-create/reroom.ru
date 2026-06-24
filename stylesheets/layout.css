@@ -485,10 +485,10 @@ img {
   align-items: center;
   justify-content: center;
 
-  border: 0.14vw solid #aeff17;
+  border: 0.14vw solid var(--accent);
   border-radius: 999vw;
 
-  color: #aeff17;
+  color: var(--accent);
   font-size: 2vw;
   font-weight: 700;
 }
@@ -521,8 +521,8 @@ img {
 
   border-radius: 999vw;
 
-  background: #fff;
-  color: #000;
+  background: var(--white);
+  color: var(--black);
 
   font-size: 2vw;
   font-weight: 700;
