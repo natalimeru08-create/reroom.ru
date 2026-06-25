@@ -16,11 +16,13 @@
     <header class="header">
       <nav class="nav">
         <a href="locations.html" class="nav__link">Наши локации</a>
+
         <a href="team.html" class="nav__link">Стань частью команды</a>
+
         <a href="catalog.html" class="nav__link">Каталог</a>
       </nav>
 
-      <a href="index.html" class="logo"> reroom. </a>
+      <a href="index.html" class="header__logo">reroom.</a>
 
       <button class="burger" aria-label="Открыть меню">
         <span></span>
@@ -28,6 +30,18 @@
         <span></span>
       </button>
     </header>
+
+    <div class="mobile-menu">
+      <button class="mobile-menu__close">Вернуться</button>
+
+      <nav class="mobile-menu__nav">
+        <a href="index.html">Главная</a>
+        <a href="locations.html">Наши локации</a>
+        <a href="team.html">Стань частью команды</a>
+        <a href="catalog.html">Каталог</a>
+      </nav>
+    </div>
+
     <section class="hero">
       <div class="hero__content">
         <div class="hero__text">
@@ -118,7 +132,9 @@
           <div class="point point--10">r</div>
         </div>
 
-        <div class="locations__pill">Сон от 30 минут в любой точке города</div>
+        <div class="locations__pill">
+          Сон от 30 минут в&nbsp;любой точке города
+        </div>
       </div>
     </section>
 
@@ -161,7 +177,7 @@
     </section>
 
     <section class="plans">
-      <h2 class="plans__title">Отдыхай в любое время в любом месте</h2>
+      <h2 class="plans__title">Отдыхай в любое время в&nbsp;любом месте</h2>
 
       <div class="plans__cards">
         <article class="plan-card plan-card--large">
@@ -208,7 +224,10 @@
             Отдохни сейчас
           </h2>
 
-          <img src="./images/qr.svg" alt="" />
+          <img src="./images/qr.svg" class="promo__qr" />
+          <a href="locations.html" class="promo__button">
+            Забронировать комнату
+          </a>
         </div>
 
         <img src="./images/phone.svg" alt="" class="promo__phone" />

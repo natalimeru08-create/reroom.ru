@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let formSubmitted = false;
 
-
   phoneInput.addEventListener("input", function (e) {
     let value = e.target.value.replace(/\D/g, "");
 
@@ -67,13 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-
-
   [nameInput, surnameInput, emailInput].forEach((input) => {
     input.addEventListener("input", validateForm);
   });
-
-
 
   function validateForm() {
     let valid = true;
@@ -109,7 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.disabled = !valid;
   }
 
-
   function setError(input) {
     input.parentElement.classList.add("error");
   }
@@ -117,7 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function removeError(input) {
     input.parentElement.classList.remove("error");
   }
-
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -130,6 +123,46 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "404.html";
     }
   });
+});
+const burger = document.querySelector(".burger");
+const mobileMenu = document.querySelector(".mobile-menu");
+const closeMenu = document.querySelector(".mobile-menu__close");
 
+if (burger) {
+  burger.addEventListener("click", () => {
+    mobileMenu.classList.add("active");
+    document.body.style.overflow = "hidden";
+  });
+}
 
+if (closeMenu) {
+  closeMenu.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    document.body.style.overflow = "";
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const burger = document.querySelector(".burger");
+  const mobileMenu = document.querySelector(".mobile-menu");
+  const closeBtn = document.querySelector(".mobile-menu__close");
+
+  if (!burger || !mobileMenu || !closeBtn) return;
+
+  burger.addEventListener("click", () => {
+    mobileMenu.classList.add("active");
+    document.body.style.overflow = "hidden";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    document.body.style.overflow = "";
+  });
+
+  mobileMenu.addEventListener("click", (e) => {
+    if (e.target === mobileMenu) {
+      mobileMenu.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  });
 });

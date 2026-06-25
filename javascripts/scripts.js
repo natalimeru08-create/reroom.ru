@@ -3,6 +3,10 @@ const w1 = document.getElementById("window-1");
 const w2 = document.getElementById("window-2");
 const section = document.querySelector(".about");
 const hand = document.querySelector(".about__hand");
+const isMobile = window.innerWidth <= 480;
+
+const startX = isMobile ? 35 : 40;
+const endX = isMobile ? 8 : 0;
 
 const states = [
   {
@@ -118,8 +122,9 @@ window.addEventListener("scroll", () => {
   const endX = 0;
 
   const currentX = startX - (startX - endX) * progress;
+  const scale = window.innerWidth <= 480 ? 1.8 : 1;
 
-  hand.style.transform = `translateX(${currentX}vw)`;
+  hand.style.transform = `translateX(${currentX}vw) scale(${scale})`;
 });
 
 // 3+4
@@ -133,8 +138,95 @@ const pin = document.querySelector(".pin");
 const door = document.querySelector(".door");
 
 const knocks = document.querySelectorAll(".knock");
+if (window.innerWidth <= 480) {
+  window.addEventListener("scroll", mobileProcess);
+} else {
+  window.addEventListener("scroll", desktopProcess);
+}
+function desktopProcess() {
+  window.addEventListener("scroll", () => {
+    const rect = process.getBoundingClientRect();
 
-window.addEventListener("scroll", () => {
+    let progress =
+      (window.innerHeight - rect.top) /
+      (process.offsetHeight - window.innerHeight);
+
+    progress = Math.max(0, Math.min(progress, 1));
+
+    /* ПИН */
+
+    const pinProgress = Math.min(progress / 0.25, 1);
+
+    pin.style.opacity = pinProgress;
+
+    if (pinProgress < 1) {
+      pin.style.transform = `
+    scale(${0.4 + pinProgress * 0.6})
+  `;
+    } else {
+      const swing = Math.sin(Date.now() / 150) * 4;
+
+      pin.style.transform = `
+    scale(1)
+    rotate(${swing}deg)
+  `;
+    }
+
+    /* СЦЕНА 1 */
+
+    if (progress <= 0.45) {
+      scene1.style.opacity = 1;
+      scene2.style.opacity = 0;
+    }
+
+    /* ПЕРЕКЛЮЧЕНИЕ */
+
+    if (progress > 0.45 && progress < 0.65) {
+      const t = (progress - 0.45) / 0.2;
+
+      scene1.style.opacity = 1 - t;
+      scene2.style.opacity = t;
+    }
+
+    /* СЦЕНА 2 */
+
+    if (progress >= 0.65) {
+      scene1.style.opacity = 0;
+      scene2.style.opacity = 1;
+    }
+
+    /* ДВЕРЬ */
+
+    if (progress > 0.7) {
+      const doorProgress = Math.min((progress - 0.7) / 0.15, 1);
+
+      door.style.transform = `scaleY(${doorProgress})`;
+    }
+
+    /* СТУК */
+
+    if (progress > 0.82) {
+      const time = Date.now() / 200;
+
+      knocks.forEach((item) => {
+        item.style.opacity = 0;
+      });
+
+      const phase = Math.floor(time % 6);
+
+      if (phase < 3) {
+        document.querySelector(".knock--1").style.opacity = 1;
+        document.querySelector(".knock--2").style.opacity = 1;
+        document.querySelector(".knock--3").style.opacity = 1;
+      } else {
+        document.querySelector(".knock--4").style.opacity = 1;
+        document.querySelector(".knock--5").style.opacity = 1;
+        document.querySelector(".knock--6").style.opacity = 1;
+      }
+    }
+  });
+}
+function mobileProcess() {
   const rect = process.getBoundingClientRect();
 
   let progress =
@@ -143,68 +235,46 @@ window.addEventListener("scroll", () => {
 
   progress = Math.max(0, Math.min(progress, 1));
 
-  /* ПИН */
+  if (progress < 0.45) {
+    scene1.style.opacity = 1;
+    scene2.style.opacity = 0;
 
-  const pinProgress = Math.min(progress / 0.25, 1);
+    pin.style.opacity = progress * 2;
 
-  pin.style.opacity = pinProgress;
+    const pinProgress = Math.min(progress / 0.35, 1);
 
-  if (pinProgress < 1) {
-    pin.style.transform = `
-    scale(${0.4 + pinProgress * 0.6})
+    pin.style.opacity = pinProgress;
+
+    if (pinProgress < 1) {
+      pin.style.transform = `
+    scale(${0.5 + pinProgress * 0.5})
   `;
-  } else {
-    const swing = Math.sin(Date.now() / 150) * 4;
+    } else {
+      const swing = Math.sin(Date.now() / 150) * 4;
 
-    pin.style.transform = `
+      pin.style.transform = `
     scale(1)
     rotate(${swing}deg)
   `;
-  }
-
-  /* СЦЕНА 1 */
-
-  if (progress <= 0.45) {
-    scene1.style.opacity = 1;
-    scene2.style.opacity = 0;
-  }
-
-  /* ПЕРЕКЛЮЧЕНИЕ */
-
-  if (progress > 0.45 && progress < 0.65) {
+    }
+  } else if (progress < 0.65) {
     const t = (progress - 0.45) / 0.2;
 
     scene1.style.opacity = 1 - t;
     scene2.style.opacity = t;
-  }
-
-  /* СЦЕНА 2 */
-
-  if (progress >= 0.65) {
+  } else {
     scene1.style.opacity = 0;
     scene2.style.opacity = 1;
-  }
 
-  /* ДВЕРЬ */
-
-  if (progress > 0.7) {
-    const doorProgress = Math.min((progress - 0.7) / 0.15, 1);
+    const doorProgress = Math.min((progress - 0.65) / 0.15, 1);
 
     door.style.transform = `scaleY(${doorProgress})`;
-  }
 
-  /* СТУК */
+    const phase = Math.floor(Date.now() / 180) % 2;
 
-  if (progress > 0.82) {
-    const time = Date.now() / 200;
+    knocks.forEach((item) => (item.style.opacity = 0));
 
-    knocks.forEach((item) => {
-      item.style.opacity = 0;
-    });
-
-    const phase = Math.floor(time % 6);
-
-    if (phase < 3) {
+    if (phase === 0) {
       document.querySelector(".knock--1").style.opacity = 1;
       document.querySelector(".knock--2").style.opacity = 1;
       document.querySelector(".knock--3").style.opacity = 1;
@@ -214,8 +284,7 @@ window.addEventListener("scroll", () => {
       document.querySelector(".knock--6").style.opacity = 1;
     }
   }
-});
-
+}
 const locations = document.querySelector(".locations");
 
 const map = document.querySelector(".locations__map");
@@ -240,10 +309,12 @@ window.addEventListener("scroll", () => {
 
   /* ТОЧКИ */
 
-  points.forEach((point, index) => {
-    const start = 0.35 + index * 0.03;
+  const isMobile = window.innerWidth <= 480;
 
-    let pointProgress = (progress - start) / 0.05;
+  points.forEach((point, index) => {
+    const start = isMobile ? 0.3 + index * 0.05 : 0.35 + index * 0.03;
+
+    let pointProgress = (progress - start) / 0.06;
 
     pointProgress = Math.max(0, Math.min(pointProgress, 1));
 
@@ -272,4 +343,45 @@ window.addEventListener("scroll", () => {
   `;
 });
 
+const burger = document.querySelector(".header__burger");
+const mobileMenu = document.querySelector(".mobile-menu");
+const closeMenu = document.querySelector(".mobile-menu__close");
 
+if (burger) {
+  burger.addEventListener("click", () => {
+    mobileMenu.classList.add("active");
+    document.body.style.overflow = "hidden";
+  });
+}
+
+if (closeMenu) {
+  closeMenu.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    document.body.style.overflow = "";
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const burger = document.querySelector(".burger");
+  const mobileMenu = document.querySelector(".mobile-menu");
+  const closeBtn = document.querySelector(".mobile-menu__close");
+
+  if (!burger || !mobileMenu || !closeBtn) return;
+
+  burger.addEventListener("click", () => {
+    mobileMenu.classList.add("active");
+    document.body.style.overflow = "hidden";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    document.body.style.overflow = "";
+  });
+
+  mobileMenu.addEventListener("click", (e) => {
+    if (e.target === mobileMenu) {
+      mobileMenu.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  });
+});
